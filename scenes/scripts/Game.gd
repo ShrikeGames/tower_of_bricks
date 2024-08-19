@@ -111,14 +111,14 @@ func _process(delta:float):
 					cursor.set_frame_and_progress(2, 0)
 					hovering = true
 					break
-			if not Global.playing_audio:
-				if not Global.settings["achievements"].get("physics_borked", false):
-					for brick_object in brick_node.get_children():
-						if is_instance_valid(brick_object) and is_instance_of(brick_object, Brick):
-							if brick_object.global_position.distance_to(brick_object.prev_global_position) > 1200:
-								play_achievement_audio(character.global_position, "res://assets/audio/voice/reactions/physics_borked.wav", "Did you just delete that brick from existence? The physics are breaking down...")
-								Global.settings["achievements"]["physics_borked"] = true
-								Global.save_settings()
+#			if not Global.playing_audio:
+#				if not Global.settings["achievements"].get("physics_borked", false):
+#					for brick_object in brick_node.get_children():
+#						if is_instance_valid(brick_object) and is_instance_of(brick_object, Brick):
+#							if brick_object.global_position.distance_to(brick_object.prev_global_position) > 1200:
+#								play_achievement_audio(character.global_position, "res://assets/audio/voice/reactions/physics_borked.wav", "Did you just delete that brick from existence? The physics are breaking down...")
+#								Global.settings["achievements"]["physics_borked"] = true
+#								Global.save_settings()
 						
 			if not hovering:
 				cursor.set_frame_and_progress(0, 0)
