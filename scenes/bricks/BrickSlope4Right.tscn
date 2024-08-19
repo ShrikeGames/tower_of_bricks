@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2ha1q0sjs2os"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://b5aopymst4spp" path="res://scenes/physics/brick_material.tres" id="1_8hh4b"]
+[ext_resource type="Script" path="res://scenes/scripts/Brick.gd" id="2_033ye"]
+[ext_resource type="Texture2D" uid="uid://ddboxt56pkaf" path="res://assets/images/bricks/brick_high_slope_right_4.png" id="3_k3lok"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dsrfx"]
+size = Vector2(128, 18)
+
+[node name="BrickSlope4Right" type="RigidBody2D" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text")]
+position = Vector2(0, -8)
+collision_layer = 18
+collision_mask = 18
+mass = 10.0
+center_of_mass_mode = 1
+physics_material_override = ExtResource("1_8hh4b")
+continuous_cd = 2
+max_contacts_reported = 255
+contact_monitor = true
+sleeping = true
+script = ExtResource("2_033ye")
+no_placing_area = NodePath("NoBuildArea")
+locked_in_area = NodePath("LockedInArea")
+clickable_area = NodePath("ClickableArea")
+required_freeze_connections = 3
+debug_text = NodePath("DebugText")
+brick_id = 1
+rare = true
+
+[node name="BrickSlopeRight4" type="Sprite2D" parent="."]
+texture = ExtResource("3_k3lok")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, -24, -58, -24, -58, -32, -38, -32, -38, -24, -32, -24, 64, 4, 64, 23, 64, 32, 60, 32, 60, 23, 37, 23, 37, 32, 27, 32, 27, 23, 5, 23, 5, 32, -5, 32, -5, 23, -27, 23, -27, 32, -37, 32, -37, 23, -60, 23, -60, 32, -64, 32)
+
+[node name="NoBuildArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NoBuildArea"]
+polygon = PackedVector2Array(-64, -24, -32, -24, 64, 4, 64, 23, -64, 23)
+
+[node name="LockedInArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LockedInArea"]
+position = Vector2(0, 23)
+shape = SubResource("RectangleShape2D_dsrfx")
+
+[node name="ClickableArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClickableArea"]
+polygon = PackedVector2Array(-64, -24, -32, -24, 64, 4, 64, 23, -64, 23)
+
+[node name="DebugText" type="RichTextLabel" parent="."]
+offset_left = -19.0
+offset_top = -18.0
+offset_right = 21.0
+offset_bottom = 22.0
+bbcode_enabled = true

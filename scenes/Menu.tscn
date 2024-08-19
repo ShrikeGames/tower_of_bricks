@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://cb1j1jpdqr2u1"]
+
+[ext_resource type="AudioStream" uid="uid://de1t7kr7gjpom" path="res://assets/audio/music/Almost New.mp3" id="1_3qdu3"]
+[ext_resource type="Texture2D" uid="uid://c4qhyn0l7son7" path="res://assets/images/menu/Background.jpg" id="1_ltftf"]
+[ext_resource type="Texture2D" uid="uid://ddtof7neib778" path="res://assets/images/menu/Title.png" id="2_brlby"]
+[ext_resource type="PackedScene" uid="uid://bedmwoe6b3bxa" path="res://scenes/Menu/BrickMenuButton1.tscn" id="3_bjwx3"]
+[ext_resource type="PackedScene" uid="uid://ckmjy6cielj6g" path="res://scenes/Menu/BrickMenuButton2.tscn" id="4_4jqu4"]
+[ext_resource type="PackedScene" uid="uid://ccdwia5i3q5xd" path="res://scenes/Menu/BrickMenuButton3.tscn" id="5_hoqv0"]
+[ext_resource type="PackedScene" uid="uid://dlx8qu3oqo7iy" path="res://scenes/Settings.tscn" id="6_yenml"]
+[ext_resource type="PackedScene" uid="uid://dqmah3r5luvse" path="res://scenes/Credits.tscn" id="7_b7j7q"]
+[ext_resource type="PackedScene" uid="uid://c8qut8h5ig4uh" path="res://scenes/Cursor.tscn" id="9_5bmwy"]
+[ext_resource type="Texture2D" uid="uid://cuvdgueyxbk6v" path="res://assets/images/gmtk/gmtk2024-logo.png" id="10_7snod"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_3qdu3")
+autoplay = true
+bus = &"Music"
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_ltftf")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(940, 214)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_brlby")
+
+[node name="PlayButton" parent="." instance=ExtResource("3_bjwx3")]
+position = Vector2(321, 495)
+
+[node name="SettingsButton" parent="." node_paths=PackedStringArray("object_to_show", "object_to_hide") instance=ExtResource("4_4jqu4")]
+position = Vector2(318, 653)
+object_to_show = NodePath("../Settings")
+object_to_hide = NodePath("../Credits")
+
+[node name="CreditsButton" parent="." node_paths=PackedStringArray("object_to_show", "object_to_hide") instance=ExtResource("5_hoqv0")]
+position = Vector2(320, 810)
+object_to_show = NodePath("../Credits")
+object_to_hide = NodePath("../Settings")
+
+[node name="Settings" parent="." instance=ExtResource("6_yenml")]
+visible = false
+position = Vector2(512, 412)
+
+[node name="Credits" parent="." instance=ExtResource("7_b7j7q")]
+visible = false
+position = Vector2(512, 412)
+
+[node name="Cursor" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("9_5bmwy")]
+z_index = 999
+position = Vector2(687, 557)
+camera = NodePath("../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+
+[node name="Gmtk2024-logo" type="Sprite2D" parent="."]
+position = Vector2(1656, 346)
+rotation = 0.512819
+scale = Vector2(0.224596, 0.224596)
+texture = ExtResource("10_7snod")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 1657.0
+offset_top = 207.0
+offset_right = 1795.0
+offset_bottom = 302.0
+rotation = 0.45575
+bbcode_enabled = true
+text = "[center]Made for the:[/center]"

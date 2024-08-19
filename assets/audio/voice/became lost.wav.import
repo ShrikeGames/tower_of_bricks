@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cy7yjh24lc1ww"
+path="res://.godot/imported/became lost.wav-30c1de0a9fa86b878a1d2031caa1a0b0.sample"
+
+[deps]
+
+source_file="res://assets/audio/voice/became lost.wav"
+dest_files=["res://.godot/imported/became lost.wav-30c1de0a9fa86b878a1d2031caa1a0b0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1pcs0oig2hqj"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://b5aopymst4spp" path="res://scenes/physics/brick_material.tres" id="1_26bx8"]
+[ext_resource type="Script" path="res://scenes/scripts/Brick.gd" id="2_n23o2"]
+[ext_resource type="Texture2D" uid="uid://dl5y5ryilof4b" path="res://assets/images/world/objects/horse.png" id="3_mkcsm"]
+
+[node name="Horse" type="RigidBody2D" node_paths=PackedStringArray("no_placing_area", "debug_text")]
+position = Vector2(1, 150)
+collision_layer = 18
+collision_mask = 18
+mass = 10.0
+center_of_mass_mode = 1
+physics_material_override = ExtResource("1_26bx8")
+continuous_cd = 2
+max_contacts_reported = 255
+contact_monitor = true
+sleeping = true
+script = ExtResource("2_n23o2")
+no_placing_area = NodePath("NoBuildArea")
+debug_text = NodePath("DebugText")
+unmovable = true
+
+[node name="Horse" type="Sprite2D" parent="."]
+position = Vector2(-53, -154)
+scale = Vector2(3.06078, 3.06078)
+texture = ExtResource("3_mkcsm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(32, 0)
+polygon = PackedVector2Array(-299, -79, -262, -99, -233, -131, -224, -154, -214, -174, -197, -197, -168, -203, -136, -199, -118, -203, -89, -203, -40, -195, -22, -195, -38, -209, -19, -210, -8, -213, -35, -228, -12, -236, 15, -252, -1, -251, -11, -255, 4, -269, 18, -278, 31, -283, 37, -285, 24, -290, 34, -298, 51, -311, 69, -315, 84, -315, 91, -322, 94, -314, 106, -307, 112, -301, 103, -297, 115, -282, 134, -258, 142, -244, 140, -235, 133, -229, 122, -229, 113, -236, 102, -246, 95, -245, 86, -244, 76, -240, 76, -225, 73, -198, 79, -171, 81, -146, 75, -121, 63, -96, 55, -67, 53, -50, 49, -36, 49, -12, 45, 8, 47, 19, 57, 29, 56, 33, 38, 33, 37, 26, 28, 13, 31, 0, 31, -24, 31, -38, 25, -56, 28, -69, 23, -95, 16, -106, -18, -106, -40, -111, -61, -116, -85, -117, -96, -100, -111, -83, -129, -60, -136, -47, -131, -16, -124, 15, -115, 33, -132, 32, -136, 22, -143, 17, -141, 8, -156, -51, -164, -59, -155, -77, -149, -101, -146, -110, -156, -133, -157, -160, -155, -171, -146, -182, -165, -175, -182, -164, -195, -143, -198, -123, -205, -104, -223, -86, -233, -74, -274, -75)
+
+[node name="NoBuildArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NoBuildArea"]
+position = Vector2(32, 0)
+polygon = PackedVector2Array(-299, -79, -262, -99, -233, -131, -224, -154, -214, -174, -197, -197, -168, -203, -136, -199, -118, -203, -89, -203, -40, -195, -22, -195, -38, -209, -19, -210, -8, -213, -35, -228, -12, -236, 15, -252, -1, -251, -11, -255, 4, -269, 18, -278, 31, -283, 37, -285, 24, -290, 34, -298, 51, -311, 69, -315, 84, -315, 91, -322, 94, -314, 106, -307, 112, -301, 103, -297, 115, -282, 134, -258, 142, -244, 140, -235, 133, -229, 122, -229, 113, -236, 102, -246, 95, -245, 86, -244, 76, -240, 76, -225, 73, -198, 79, -171, 81, -146, 75, -121, 63, -96, 55, -67, 53, -50, 49, -36, 49, -12, 45, 8, 47, 19, 57, 29, 56, 33, 38, 33, 37, 26, 28, 13, 31, 0, 31, -24, 31, -38, 25, -56, 28, -69, 23, -95, 16, -106, -18, -106, -40, -111, -61, -116, -85, -117, -96, -100, -111, -83, -129, -60, -136, -47, -131, -16, -124, 15, -115, 33, -132, 32, -136, 22, -143, 17, -141, 8, -156, -51, -164, -59, -155, -77, -149, -101, -146, -110, -156, -133, -157, -160, -155, -171, -146, -182, -165, -175, -182, -164, -195, -143, -198, -123, -205, -104, -223, -86, -233, -74, -274, -75)
+
+[node name="DebugText" type="RichTextLabel" parent="."]
+offset_left = -19.0
+offset_top = -18.0
+offset_right = 21.0
+offset_bottom = 22.0
+bbcode_enabled = true

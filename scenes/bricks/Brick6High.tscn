@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://doij84syy5pbv"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://b5aopymst4spp" path="res://scenes/physics/brick_material.tres" id="1_u0a8e"]
+[ext_resource type="Texture2D" uid="uid://cyby881vf7p46" path="res://assets/images/bricks/brick_high_6.png" id="2_3bc0d"]
+[ext_resource type="Script" path="res://scenes/scripts/Brick.gd" id="2_ee1gi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3p8a"]
+size = Vector2(188, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dsrfx"]
+size = Vector2(140, 57)
+
+[node name="Brick6High" type="RigidBody2D" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text")]
+position = Vector2(0, 1)
+collision_layer = 18
+collision_mask = 18
+mass = 10.0
+center_of_mass_mode = 1
+physics_material_override = ExtResource("1_u0a8e")
+continuous_cd = 2
+max_contacts_reported = 255
+contact_monitor = true
+sleeping = true
+script = ExtResource("2_ee1gi")
+no_placing_area = NodePath("NoBuildArea")
+locked_in_area = NodePath("LockedInArea")
+clickable_area = NodePath("ClickableArea")
+required_freeze_connections = 3
+debug_text = NodePath("DebugText")
+brick_id = 2
+
+[node name="BrickHigh6" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("2_3bc0d")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-70, -24, -58, -24, -58, -32, -38, -32, -38, -24, -26, -24, -26, -32, -6, -32, -6, -24, 6, -24, 6, -32, 26, -32, 26, -24, 38, -24, 38, -32, 58, -32, 58, -24, 70, -24, 70, -32, 90, -32, 90, -24, 95, -24, 95, 30, 91, 30, 91, 22, 70, 22, 70, 30, 59, 30, 59, 22, 37, 22, 37, 30, 27, 30, 27, 22, 5, 22, 5, 30, -5, 30, -5, 22, -27, 22, -27, 30, -37, 30, -37, 22, -59, 22, -59, 30, -69, 30, -69, 22, -91, 22, -91, 30, -95, 30, -95, -24, -90, -24, -90, -32, -70, -32)
+
+[node name="NoBuildArea" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoBuildArea"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_l3p8a")
+debug_color = Color(1, 0, 0, 0.635294)
+
+[node name="LockedInArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LockedInArea"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_dsrfx")
+
+[node name="ClickableArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_l3p8a")
+debug_color = Color(1, 0, 0, 0.635294)
+
+[node name="DebugText" type="RichTextLabel" parent="."]
+offset_left = -19.0
+offset_top = -18.0
+offset_right = 21.0
+offset_bottom = 22.0
+bbcode_enabled = true

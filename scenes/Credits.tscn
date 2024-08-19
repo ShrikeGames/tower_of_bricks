@@ -1,0 +1,122 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqmah3r5luvse"]
+
+[ext_resource type="Texture2D" uid="uid://ysc1buifbc2l" path="res://assets/images/menu/MenuBackgroundBlack.png" id="1_spjda"]
+[ext_resource type="PackedScene" uid="uid://dvegulb5nu8gb" path="res://scenes/Menu/CloseButton.tscn" id="2_wxh1m"]
+
+[node name="Credits" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="MenuBackgroundBlack" type="Sprite2D" parent="."]
+position = Vector2(512, 256)
+texture = ExtResource("1_spjda")
+
+[node name="Title" type="HSplitContainer" parent="."]
+offset_top = 8.0
+offset_right = 1025.0
+offset_bottom = 54.0
+split_offset = 200
+
+[node name="title" type="RichTextLabel" parent="Title"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Credits[/center]"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Title2" type="HSplitContainer" parent="."]
+offset_top = 56.0
+offset_right = 1025.0
+offset_bottom = 125.0
+split_offset = 200
+
+[node name="Programming" type="RichTextLabel" parent="Title2"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Programming and Development[/center]
+
+
+
+"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Programming2" type="RichTextLabel" parent="Title2"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Everything - Shrike
+https://ShrikeGames.com
+
+Platformer Controller (Used as a base) - Ev01
+https://github.com/Ev01/PlatformerController2D"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Title4" type="HSplitContainer" parent="."]
+offset_left = -2.0
+offset_top = 186.0
+offset_right = 1023.0
+offset_bottom = 439.0
+split_offset = 200
+
+[node name="Programming" type="RichTextLabel" parent="Title4"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Art & Audio [/center]
+
+
+
+"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Programming2" type="RichTextLabel" parent="Title4"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Cursor, Bricks, Cloud, Music, and Misc Assets  - Kenney
+https://www.kenney.nl
+
+Food Item Assets [CC BY-SA 4.0] - CodeSpree
+https://codespree.itch.io/rpg-items
+
+Player Character, Art Edits, User Interface, and Sound Effects - Shrike
+https://ShrikeGames.com
+
+Moon photograph used with permission  - SirMeepington
+https://github.com/sirmeepington
+"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Title5" type="HSplitContainer" parent="."]
+offset_left = -2.0
+offset_top = 450.0
+offset_right = 1023.0
+offset_bottom = 634.0
+split_offset = 200
+
+[node name="Programming" type="RichTextLabel" parent="Title5"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Thanks [/center]
+
+
+
+"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Programming2" type="RichTextLabel" parent="Title5"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Game Makers Tool Kit for hosting this Game Jam
+NoWorld's NoiR for inspiring me to start game dev again"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="CloseButton" parent="." node_paths=PackedStringArray("object_to_hide") instance=ExtResource("2_wxh1m")]
+position = Vector2(1008, 18)
+object_to_hide = NodePath("..")

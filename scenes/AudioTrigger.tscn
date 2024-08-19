@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr0y72x7wqki8"]
+
+[ext_resource type="Script" path="res://scenes/scripts/AudioTrigger.gd" id="1_tuhe7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_12b8d"]
+
+[node name="AudioTrigger" type="Node2D" node_paths=PackedStringArray("audio_player")]
+process_mode = 3
+script = ExtResource("1_tuhe7")
+audio_player = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Voice"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4096
+collision_mask = 4096
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(8.4, 8.4)
+shape = SubResource("CircleShape2D_12b8d")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

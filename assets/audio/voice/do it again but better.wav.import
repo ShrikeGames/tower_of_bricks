@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dwtxl5fm1mfi2"
+path="res://.godot/imported/do it again but better.wav-b27e8f7710acb2e3f6579fe3b706fc56.sample"
+
+[deps]
+
+source_file="res://assets/audio/voice/do it again but better.wav"
+dest_files=["res://.godot/imported/do it again but better.wav-b27e8f7710acb2e3f6579fe3b706fc56.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

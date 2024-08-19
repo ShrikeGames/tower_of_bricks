@@ -1,0 +1,1153 @@
+[gd_scene load_steps=39 format=3 uid="uid://4xms2r6tsqdy"]
+
+[ext_resource type="Script" path="res://scenes/scripts/Game.gd" id="1_pv0ae"]
+[ext_resource type="Texture2D" uid="uid://c6lrhgj5i6iks" path="res://assets/images/world/0.png" id="2_58juj"]
+[ext_resource type="AudioStream" uid="uid://de1t7kr7gjpom" path="res://assets/audio/music/Almost New.mp3" id="2_kt7kf"]
+[ext_resource type="AudioStream" uid="uid://c12hj25s4rtnp" path="res://assets/audio/sfx/pop.wav" id="3_78ci4"]
+[ext_resource type="Texture2D" uid="uid://tpjngtmitii1" path="res://assets/images/world/1.png" id="3_m1k0e"]
+[ext_resource type="AudioStream" uid="uid://bnweahc4fs23e" path="res://assets/audio/sfx/brick_clack.wav" id="4_bvpeh"]
+[ext_resource type="Texture2D" uid="uid://bex42kltf6yla" path="res://assets/images/world/2.png" id="4_xqsbr"]
+[ext_resource type="Texture2D" uid="uid://ndmlify345l8" path="res://assets/images/world/3.png" id="5_bkx3x"]
+[ext_resource type="AudioStream" uid="uid://cv5lxl1hpatqt" path="res://assets/audio/sfx/strong wind blowing.mp3" id="5_vso5u"]
+[ext_resource type="Texture2D" uid="uid://re6d3ooswtjf" path="res://assets/images/world/4.png" id="6_4uetl"]
+[ext_resource type="PackedScene" uid="uid://b7cpmhhewehoi" path="res://scenes/background/Cloud.tscn" id="7_ind5a"]
+[ext_resource type="PackedScene" uid="uid://doij84syy5pbv" path="res://scenes/bricks/Brick6High.tscn" id="8_oot3r"]
+[ext_resource type="PackedScene" uid="uid://kc2ihoxnr46n" path="res://scenes/bricks/Brick2High.tscn" id="10_b750s"]
+[ext_resource type="PackedScene" uid="uid://bqnuynnxrxiru" path="res://scenes/bricks/BrickUnderSlope4Left.tscn" id="10_yw01r"]
+[ext_resource type="PackedScene" uid="uid://c1pcs0oig2hqj" path="res://scenes/bricks/Horse.tscn" id="11_0pcfd"]
+[ext_resource type="PackedScene" uid="uid://dgwmvpq7pih3i" path="res://scenes/bricks/Tree.tscn" id="12_8uajx"]
+[ext_resource type="PackedScene" uid="uid://d2uyxrjbo77s4" path="res://scenes/bricks/BlueBerry.tscn" id="12_82ixv"]
+[ext_resource type="PackedScene" uid="uid://dkaa0q8c321x5" path="res://scenes/Wind.tscn" id="12_dvmd5"]
+[ext_resource type="PackedScene" uid="uid://bakc6yfgu65le" path="res://scenes/bricks/BrickUnderSlope4Right.tscn" id="12_gbnme"]
+[ext_resource type="PackedScene" uid="uid://b8mqmhe6d888k" path="res://scenes/bricks/Fence.tscn" id="12_k1v6n"]
+[ext_resource type="PackedScene" uid="uid://dcb0hviqq56xb" path="res://scenes/bricks/Banana.tscn" id="13_ca4i3"]
+[ext_resource type="PackedScene" uid="uid://dy3xerfuxvbng" path="res://scenes/bricks/Moon.tscn" id="13_ca540"]
+[ext_resource type="PackedScene" uid="uid://b4vw5lr618kx" path="res://scenes/bricks/Orange.tscn" id="14_0hrbd"]
+[ext_resource type="PackedScene" uid="uid://cxgbtley7tdsv" path="res://scenes/bricks/Pyramid.tscn" id="15_444kw"]
+[ext_resource type="PackedScene" uid="uid://8sot133mg56h" path="res://scenes/bricks/Pear.tscn" id="15_lgnle"]
+[ext_resource type="PackedScene" uid="uid://k2qgieuoc3sa" path="res://scenes/bricks/Cheese.tscn" id="16_boptr"]
+[ext_resource type="PackedScene" uid="uid://1g8vjae4nuic" path="res://scenes/Character.tscn" id="16_f06gb"]
+[ext_resource type="PackedScene" uid="uid://dqtjxvoaykx1u" path="res://scenes/bricks/Brick4High.tscn" id="16_og1fh"]
+[ext_resource type="PackedScene" uid="uid://c8qut8h5ig4uh" path="res://scenes/Cursor.tscn" id="17_j2im5"]
+[ext_resource type="PackedScene" uid="uid://d2ha1q0sjs2os" path="res://scenes/bricks/BrickSlope4Right.tscn" id="17_lugkf"]
+[ext_resource type="PackedScene" uid="uid://b14oj17xtndtp" path="res://scenes/bricks/BrickSlope4Left.tscn" id="18_wkwuf"]
+[ext_resource type="PackedScene" uid="uid://dux8eo0t6xnk" path="res://scenes/bricks/OtherPlayer.tscn" id="27_sgmin"]
+[ext_resource type="PackedScene" uid="uid://dlx8qu3oqo7iy" path="res://scenes/Settings.tscn" id="28_7kl50"]
+[ext_resource type="PackedScene" uid="uid://js8ny15kgwdr" path="res://scenes/Menu/BrickMenuButtonCog.tscn" id="32_ikce1"]
+[ext_resource type="PackedScene" uid="uid://bxnpqut0u314t" path="res://scenes/Subtitles.tscn" id="34_4j7hv"]
+[ext_resource type="PackedScene" uid="uid://cr0y72x7wqki8" path="res://scenes/AudioTrigger.tscn" id="35_x3lac"]
+[ext_resource type="PackedScene" uid="uid://cxqobrwfc1md5" path="res://scenes/WinTrigger.tscn" id="37_peop2"]
+[ext_resource type="PackedScene" uid="uid://d4njkjda5a7uj" path="res://scenes/WindAudioTrigger.tscn" id="38_8o8rt"]
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("pop_sfx", "brick_node", "background_node", "camera", "character", "cursor", "subtitles")]
+script = ExtResource("1_pv0ae")
+pop_sfx = NodePath("PopSFX")
+brick_node = NodePath("TowerPieces")
+background_node = NodePath("StockGroundPieces")
+camera = NodePath("Camera2D")
+character = NodePath("Character")
+cursor = NodePath("Cursor")
+subtitles = NodePath("CanvasLayer/Subtitles")
+
+[node name="RandomFallVoiceLines" type="AudioStreamPlayer" parent="."]
+bus = &"Voice"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kt7kf")
+autoplay = true
+bus = &"Music"
+
+[node name="PopSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_78ci4")
+bus = &"SFX"
+
+[node name="Clack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bvpeh")
+bus = &"SFX"
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vso5u")
+bus = &"SFX"
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(-2577, 0)
+scale = Vector2(4.88, 1)
+
+[node name="0" type="Sprite2D" parent="Background"]
+position = Vector2(796, 1307)
+scale = Vector2(100, 100)
+texture = ExtResource("2_58juj")
+
+[node name="1" type="Sprite2D" parent="Background"]
+position = Vector2(772.815, -929.758)
+scale = Vector2(6, 3)
+texture = ExtResource("3_m1k0e")
+
+[node name="2" type="Sprite2D" parent="Background"]
+position = Vector2(774.385, -2399)
+scale = Vector2(6, 6)
+texture = ExtResource("4_xqsbr")
+
+[node name="3" type="Sprite2D" parent="Background"]
+position = Vector2(773.065, -3841.01)
+scale = Vector2(6, 3)
+texture = ExtResource("5_bkx3x")
+
+[node name="4" type="Sprite2D" parent="Background"]
+position = Vector2(793.443, -8259)
+scale = Vector2(6, 24.78)
+texture = ExtResource("6_4uetl")
+
+[node name="Cloud" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(567.418, -450)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud2" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(827.254, -720)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud3" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(549.795, -854)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud4" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(829.713, -1062)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud5" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(538.73, -1252)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud6" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(610.041, -1518)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud7" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(843.033, -1445)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud8" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(530.123, -1797)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud9" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(953.689, -1733)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud10" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(145.901, -387)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud11" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(405.738, -657)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud12" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(128.279, -791)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud13" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(408.197, -999)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud14" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(996.721, -598)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud15" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(1068.03, -864)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud16" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(1301.03, -791)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud17" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(988.115, -1143)
+scale = Vector2(0.204918, 1)
+
+[node name="Cloud18" parent="Background" instance=ExtResource("7_ind5a")]
+position = Vector2(1411.68, -1079)
+scale = Vector2(0.204918, 1)
+
+[node name="Wind2" parent="Background" instance=ExtResource("12_dvmd5")]
+position = Vector2(837.705, -753)
+scale = Vector2(0.0949449, 0.344799)
+
+[node name="StockGroundPieces" type="Node2D" parent="."]
+
+[node name="Tree" parent="StockGroundPieces" instance=ExtResource("12_8uajx")]
+position = Vector2(2629, -767)
+
+[node name="Tree2" parent="StockGroundPieces" instance=ExtResource("12_8uajx")]
+position = Vector2(1485, -506)
+
+[node name="Pyramid" parent="StockGroundPieces" instance=ExtResource("15_444kw")]
+position = Vector2(-1281, -1516)
+lock_rotation = true
+freeze = true
+
+[node name="Moon" parent="StockGroundPieces" instance=ExtResource("13_ca540")]
+position = Vector2(-800, -6538)
+scale = Vector2(1, 1.00323)
+lock_rotation = true
+freeze = true
+
+[node name="Horse" parent="StockGroundPieces" instance=ExtResource("11_0pcfd")]
+position = Vector2(1921, -1253)
+
+[node name="BlueBerry" parent="StockGroundPieces" instance=ExtResource("12_82ixv")]
+position = Vector2(667, 753)
+
+[node name="Banana" parent="StockGroundPieces" instance=ExtResource("13_ca4i3")]
+position = Vector2(612, 752)
+
+[node name="Orange" parent="StockGroundPieces" instance=ExtResource("14_0hrbd")]
+position = Vector2(640, 683)
+
+[node name="Pear" parent="StockGroundPieces" instance=ExtResource("15_lgnle")]
+position = Vector2(551, 745)
+
+[node name="Cheese" parent="StockGroundPieces" instance=ExtResource("16_boptr")]
+position = Vector2(1733, -1)
+
+[node name="Cheese2" parent="StockGroundPieces" instance=ExtResource("16_boptr")]
+position = Vector2(1731, -123)
+rotation = -0.125406
+
+[node name="Fence" parent="StockGroundPieces" instance=ExtResource("12_k1v6n")]
+position = Vector2(1628, 513)
+
+[node name="OtherPlayer" parent="StockGroundPieces" instance=ExtResource("27_sgmin")]
+position = Vector2(411, -1506)
+rotation = 1.59231
+
+[node name="OtherPlayer2" parent="StockGroundPieces" instance=ExtResource("27_sgmin")]
+position = Vector2(527, -1543)
+rotation = -1.58813
+
+[node name="OtherPlayer3" parent="StockGroundPieces" instance=ExtResource("27_sgmin")]
+position = Vector2(249, -1503)
+rotation = -1.54076
+
+[node name="UnMovablePlatform" type="Node2D" parent="StockGroundPieces"]
+
+[node name="BrickUnderSlopeLeft4" parent="StockGroundPieces/UnMovablePlatform" instance=ExtResource("10_yw01r")]
+position = Vector2(287, 776)
+lock_rotation = true
+freeze = true
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh6" parent="StockGroundPieces/UnMovablePlatform" instance=ExtResource("8_oot3r")]
+position = Vector2(446, 777)
+lock_rotation = true
+freeze = true
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh7" parent="StockGroundPieces/UnMovablePlatform" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(637, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../BrickHigh6/LockedInArea")
+clickable_area = NodePath("../BrickHigh6/ClickableArea")
+debug_text = NodePath("../BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh8" parent="StockGroundPieces/UnMovablePlatform" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(828, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../BrickHigh6/LockedInArea")
+clickable_area = NodePath("../BrickHigh6/ClickableArea")
+debug_text = NodePath("../BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh9" parent="StockGroundPieces/UnMovablePlatform" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(1019, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../BrickHigh6/LockedInArea")
+clickable_area = NodePath("../BrickHigh6/ClickableArea")
+debug_text = NodePath("../BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickUnderSlopeRight4" parent="StockGroundPieces/UnMovablePlatform" instance=ExtResource("12_gbnme")]
+position = Vector2(1178, 776)
+lock_rotation = true
+freeze = true
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="UnMovablePlatform2" type="Node2D" parent="StockGroundPieces"]
+position = Vector2(1086, -199)
+
+[node name="BrickUnderSlopeLeft4" parent="StockGroundPieces/UnMovablePlatform2" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("10_yw01r")]
+position = Vector2(287, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh6" parent="StockGroundPieces/UnMovablePlatform2" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(446, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh7" parent="StockGroundPieces/UnMovablePlatform2" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(637, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh8" parent="StockGroundPieces/UnMovablePlatform2" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(828, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh9" parent="StockGroundPieces/UnMovablePlatform2" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(1019, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickUnderSlopeRight4" parent="StockGroundPieces/UnMovablePlatform2" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("12_gbnme")]
+position = Vector2(1178, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="UnMovablePlatform5" type="Node2D" parent="StockGroundPieces"]
+position = Vector2(1394, -743)
+
+[node name="BrickUnderSlopeLeft4" parent="StockGroundPieces/UnMovablePlatform5" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("10_yw01r")]
+position = Vector2(287, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh6" parent="StockGroundPieces/UnMovablePlatform5" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(446, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh9" parent="StockGroundPieces/UnMovablePlatform5" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(637, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickUnderSlopeRight4" parent="StockGroundPieces/UnMovablePlatform5" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("12_gbnme")]
+position = Vector2(796, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="UnMovablePlatform8" type="Node2D" parent="StockGroundPieces"]
+position = Vector2(2082, -477)
+
+[node name="BrickUnderSlopeLeft4" parent="StockGroundPieces/UnMovablePlatform8" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("10_yw01r")]
+position = Vector2(287, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh6" parent="StockGroundPieces/UnMovablePlatform8" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(446, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh9" parent="StockGroundPieces/UnMovablePlatform8" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(637, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickUnderSlopeRight4" parent="StockGroundPieces/UnMovablePlatform8" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("12_gbnme")]
+position = Vector2(796, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="UnMovablePlatform7" type="Node2D" parent="StockGroundPieces"]
+position = Vector2(745, -1209)
+
+[node name="BrickUnderSlopeLeft4" parent="StockGroundPieces/UnMovablePlatform7" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("10_yw01r")]
+position = Vector2(287, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh6" parent="StockGroundPieces/UnMovablePlatform7" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(446, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh9" parent="StockGroundPieces/UnMovablePlatform7" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(637, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickUnderSlopeRight4" parent="StockGroundPieces/UnMovablePlatform7" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("12_gbnme")]
+position = Vector2(796, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="UnMovablePlatform10" type="Node2D" parent="StockGroundPieces"]
+position = Vector2(639, -2232)
+
+[node name="BrickUnderSlopeLeft4" parent="StockGroundPieces/UnMovablePlatform10" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("10_yw01r")]
+position = Vector2(287, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh6" parent="StockGroundPieces/UnMovablePlatform10" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(446, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh9" parent="StockGroundPieces/UnMovablePlatform10" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(637, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickUnderSlopeRight4" parent="StockGroundPieces/UnMovablePlatform10" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("12_gbnme")]
+position = Vector2(796, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="UnMovablePlatform11" type="Node2D" parent="StockGroundPieces"]
+position = Vector2(-216, -2232)
+
+[node name="BrickUnderSlopeLeft4" parent="StockGroundPieces/UnMovablePlatform11" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("10_yw01r")]
+position = Vector2(287, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh6" parent="StockGroundPieces/UnMovablePlatform11" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(446, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh9" parent="StockGroundPieces/UnMovablePlatform11" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(637, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickUnderSlopeRight4" parent="StockGroundPieces/UnMovablePlatform11" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("12_gbnme")]
+position = Vector2(796, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="UnMovablePlatform12" type="Node2D" parent="StockGroundPieces"]
+position = Vector2(-820, -2700)
+
+[node name="BrickUnderSlopeLeft4" parent="StockGroundPieces/UnMovablePlatform12" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("10_yw01r")]
+position = Vector2(287, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh6" parent="StockGroundPieces/UnMovablePlatform12" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(446, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh9" parent="StockGroundPieces/UnMovablePlatform12" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(637, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickUnderSlopeRight4" parent="StockGroundPieces/UnMovablePlatform12" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("12_gbnme")]
+position = Vector2(796, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="UnMovablePlatform3" type="Node2D" parent="StockGroundPieces"]
+position = Vector2(1826, -1472)
+
+[node name="BrickUnderSlopeLeft4" parent="StockGroundPieces/UnMovablePlatform3" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("10_yw01r")]
+position = Vector2(287, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh6" parent="StockGroundPieces/UnMovablePlatform3" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(446, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh7" parent="StockGroundPieces/UnMovablePlatform3" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(637, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh8" parent="StockGroundPieces/UnMovablePlatform3" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(828, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh9" parent="StockGroundPieces/UnMovablePlatform3" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(1019, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickUnderSlopeRight4" parent="StockGroundPieces/UnMovablePlatform3" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("12_gbnme")]
+position = Vector2(1178, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="UnMovablePlatform9" type="Node2D" parent="StockGroundPieces"]
+position = Vector2(1169, -1971)
+
+[node name="BrickUnderSlopeLeft4" parent="StockGroundPieces/UnMovablePlatform9" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("10_yw01r")]
+position = Vector2(287, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh6" parent="StockGroundPieces/UnMovablePlatform9" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(446, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh7" parent="StockGroundPieces/UnMovablePlatform9" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(637, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh8" parent="StockGroundPieces/UnMovablePlatform9" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(828, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickHigh9" parent="StockGroundPieces/UnMovablePlatform9" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(1019, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="BrickUnderSlopeRight4" parent="StockGroundPieces/UnMovablePlatform9" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("12_gbnme")]
+position = Vector2(1178, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/DebugText")
+unmovable = true
+colour_override = Color(0, 0.439216, 0, 1)
+
+[node name="UnMovablePlatform4" type="Node2D" parent="StockGroundPieces"]
+position = Vector2(-703, -3151)
+
+[node name="BrickUnderSlopeLeft4" parent="StockGroundPieces/UnMovablePlatform4" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("10_yw01r")]
+position = Vector2(287, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="BrickHigh6" parent="StockGroundPieces/UnMovablePlatform4" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(446, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="BrickHigh7" parent="StockGroundPieces/UnMovablePlatform4" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(637, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="BrickHigh8" parent="StockGroundPieces/UnMovablePlatform4" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(828, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="BrickHigh9" parent="StockGroundPieces/UnMovablePlatform4" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(1019, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="BrickHigh10" parent="StockGroundPieces/UnMovablePlatform4" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(1210, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="BrickHigh11" parent="StockGroundPieces/UnMovablePlatform4" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(1401, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="BrickUnderSlopeRight4" parent="StockGroundPieces/UnMovablePlatform4" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("12_gbnme")]
+position = Vector2(1560, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="UnMovablePlatform6" type="Node2D" parent="StockGroundPieces"]
+position = Vector2(-2099, -2237)
+
+[node name="BrickUnderSlopeLeft4" parent="StockGroundPieces/UnMovablePlatform6" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("10_yw01r")]
+position = Vector2(287, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeLeft4/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="BrickHigh6" parent="StockGroundPieces/UnMovablePlatform6" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(446, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="BrickHigh7" parent="StockGroundPieces/UnMovablePlatform6" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(637, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="BrickHigh8" parent="StockGroundPieces/UnMovablePlatform6" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(828, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="BrickHigh9" parent="StockGroundPieces/UnMovablePlatform6" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(1019, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="BrickHigh10" parent="StockGroundPieces/UnMovablePlatform6" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(1210, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="BrickHigh11" parent="StockGroundPieces/UnMovablePlatform6" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("8_oot3r")]
+position = Vector2(1401, 777)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickHigh6/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickHigh6/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickHigh6/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickHigh6/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="BrickUnderSlopeRight4" parent="StockGroundPieces/UnMovablePlatform6" node_paths=PackedStringArray("no_placing_area", "locked_in_area", "clickable_area", "debug_text") instance=ExtResource("12_gbnme")]
+position = Vector2(1560, 776)
+lock_rotation = true
+freeze = true
+no_placing_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/NoBuildArea")
+locked_in_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/LockedInArea")
+clickable_area = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/ClickableArea")
+debug_text = NodePath("../../UnMovablePlatform/BrickUnderSlopeRight4/DebugText")
+unmovable = true
+colour_override = Color(0.411765, 0.356863, 0.156863, 1)
+
+[node name="TowerPieces" type="Node2D" parent="."]
+
+[node name="BrickHigh2" parent="TowerPieces" instance=ExtResource("10_b750s")]
+position = Vector2(923, 721)
+
+[node name="BrickHigh4" parent="TowerPieces" instance=ExtResource("16_og1fh")]
+position = Vector2(1020, 721)
+
+[node name="BrickHigh3" parent="TowerPieces" instance=ExtResource("10_b750s")]
+position = Vector2(1052, 665)
+
+[node name="BrickSlope4Right" parent="TowerPieces" instance=ExtResource("17_lugkf")]
+position = Vector2(2106, 522)
+
+[node name="Brick6High" parent="TowerPieces" instance=ExtResource("8_oot3r")]
+position = Vector2(1946, 523)
+
+[node name="BrickSlope4Left" parent="TowerPieces" instance=ExtResource("18_wkwuf")]
+position = Vector2(1786, 522)
+
+[node name="Brick2High" parent="TowerPieces" instance=ExtResource("10_b750s")]
+position = Vector2(1851, 467)
+
+[node name="Brick2High2" parent="TowerPieces" instance=ExtResource("10_b750s")]
+position = Vector2(2041, 467)
+
+[node name="Brick4High" parent="TowerPieces" instance=ExtResource("16_og1fh")]
+position = Vector2(1946, 467)
+
+[node name="Brick6High2" parent="TowerPieces" instance=ExtResource("8_oot3r")]
+position = Vector2(1945, 413)
+
+[node name="Brick4High2" parent="TowerPieces" instance=ExtResource("16_og1fh")]
+position = Vector2(1976, 357)
+
+[node name="Brick2High3" parent="TowerPieces" instance=ExtResource("10_b750s")]
+position = Vector2(1881, 357)
+
+[node name="BrickSlope4Right2" parent="TowerPieces" instance=ExtResource("17_lugkf")]
+position = Vector2(1159, -488)
+
+[node name="Brick6High3" parent="TowerPieces" instance=ExtResource("8_oot3r")]
+position = Vector2(1082, -543)
+rotation = -0.684589
+
+[node name="Brick4High3" parent="TowerPieces" instance=ExtResource("16_og1fh")]
+position = Vector2(1285, -488)
+
+[node name="Brick2High4" parent="TowerPieces" instance=ExtResource("10_b750s")]
+position = Vector2(1285, -544)
+
+[node name="Brick6High4" parent="TowerPieces" instance=ExtResource("8_oot3r")]
+position = Vector2(1945, 299)
+
+[node name="Brick6High5" parent="TowerPieces" instance=ExtResource("8_oot3r")]
+position = Vector2(1945, 243)
+
+[node name="Brick2High5" parent="TowerPieces" instance=ExtResource("10_b750s")]
+position = Vector2(1881, 187)
+
+[node name="Brick2High6" parent="TowerPieces" instance=ExtResource("10_b750s")]
+position = Vector2(1881, 129)
+
+[node name="Brick2High7" parent="TowerPieces" instance=ExtResource("10_b750s")]
+position = Vector2(2782, 256)
+
+[node name="Brick4High4" parent="TowerPieces" instance=ExtResource("16_og1fh")]
+position = Vector2(2686, 243)
+
+[node name="Brick6High6" parent="TowerPieces" instance=ExtResource("8_oot3r")]
+position = Vector2(2605, 142)
+
+[node name="Brick4High5" parent="TowerPieces" instance=ExtResource("16_og1fh")]
+position = Vector2(2698, 71)
+
+[node name="Brick2High8" parent="TowerPieces" instance=ExtResource("10_b750s")]
+position = Vector2(2535, 231)
+
+[node name="Brick4High6" parent="TowerPieces" instance=ExtResource("16_og1fh")]
+position = Vector2(2430, 228)
+
+[node name="Brick2High9" parent="TowerPieces" instance=ExtResource("10_b750s")]
+position = Vector2(2869, 223)
+
+[node name="BrickSlope4Left2" parent="TowerPieces" instance=ExtResource("18_wkwuf")]
+position = Vector2(2559, 72)
+
+[node name="BrickSlope4Right3" parent="TowerPieces" instance=ExtResource("17_lugkf")]
+position = Vector2(2674, -3)
+
+[node name="BrickSlope4Right4" parent="TowerPieces" instance=ExtResource("17_lugkf")]
+position = Vector2(2087, -1258)
+
+[node name="BrickSlope4Left3" parent="TowerPieces" instance=ExtResource("18_wkwuf")]
+position = Vector2(1728, -1268)
+
+[node name="Brick4High7" parent="TowerPieces" instance=ExtResource("16_og1fh")]
+position = Vector2(1307, -1513)
+
+[node name="BrickSlope4Right5" parent="TowerPieces" instance=ExtResource("17_lugkf")]
+position = Vector2(-133, -2010)
+
+[node name="BrickSlope4Left4" parent="TowerPieces" instance=ExtResource("18_wkwuf")]
+position = Vector2(-358, -2481)
+
+[node name="BrickSlope4Right6" parent="TowerPieces" instance=ExtResource("17_lugkf")]
+position = Vector2(-214, -2464)
+
+[node name="BrickUnder4SlopeLeft" parent="TowerPieces" instance=ExtResource("10_yw01r")]
+position = Vector2(331, -1535)
+
+[node name="BrickUnder4SlopeRight" parent="TowerPieces" instance=ExtResource("12_gbnme")]
+position = Vector2(324, -1615)
+
+[node name="Brick2High10" parent="TowerPieces" instance=ExtResource("10_b750s")]
+position = Vector2(994, 172)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(805, 438)
+position_smoothing_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.05
+drag_bottom_margin = 0.05
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Character" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("16_f06gb")]
+position = Vector2(1593, -1541)
+camera = NodePath("../Camera2D")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("28_7kl50")]
+visible = false
+position = Vector2(420, 53)
+
+[node name="SettingsCog" parent="CanvasLayer" node_paths=PackedStringArray("object_to_show") instance=ExtResource("32_ikce1")]
+position = Vector2(100, 100)
+object_to_show = NodePath("../Settings")
+
+[node name="Subtitles" parent="CanvasLayer" instance=ExtResource("34_4j7hv")]
+
+[node name="Cursor" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("17_j2im5")]
+z_index = 999
+position = Vector2(-8535, 4239)
+camera = NodePath("../Camera2D")
+
+[node name="FirstAudio" parent="." node_paths=PackedStringArray("subtitles") instance=ExtResource("35_x3lac")]
+position = Vector2(2337, 181)
+audio_filename = "res://assets/audio/voice/setpieces/1.wav"
+play_random_audio = false
+subtitles = NodePath("../CanvasLayer/Subtitles")
+custom_subtitles = "You have just taken the first step on your adventure. I wish you the best of luck in your efforts, do not disappoint me."
+
+[node name="SignAudio" parent="." node_paths=PackedStringArray("subtitles") instance=ExtResource("35_x3lac")]
+position = Vector2(1624, 362)
+audio_filename = "res://assets/audio/voice/setpieces/2_sign.wav"
+play_random_audio = false
+subtitles = NodePath("../CanvasLayer/Subtitles")
+custom_subtitles = "I placed this sign here in case it was not obvious. You are to go up, not down. Just up."
+
+[node name="CheeseAudio" parent="." node_paths=PackedStringArray("subtitles") instance=ExtResource("35_x3lac")]
+position = Vector2(2189, -81)
+audio_filename = "res://assets/audio/voice/setpieces/cheese.wav"
+play_random_audio = false
+subtitles = NodePath("../CanvasLayer/Subtitles")
+custom_subtitles = "There are many types of cheese in this broken world, none of them are edible. Some may help you reach the top. Not these ones though."
+
+[node name="WindAudio" parent="." node_paths=PackedStringArray("subtitles") instance=ExtResource("35_x3lac")]
+position = Vector2(1754, -329)
+audio_filename = "res://assets/audio/voice/setpieces/wind howls.wav"
+play_random_audio = false
+subtitles = NodePath("../CanvasLayer/Subtitles")
+custom_subtitles = "As the Witcher famously would say ‘wind’s howling’."
+
+[node name="PyramidAudio" parent="." node_paths=PackedStringArray("subtitles") instance=ExtResource("35_x3lac")]
+position = Vector2(-1277, -2836)
+audio_filename = "res://assets/audio/voice/setpieces/pyramids.wav"
+play_random_audio = false
+subtitles = NodePath("../CanvasLayer/Subtitles")
+custom_subtitles = "The pyramids were the tallest structures for thousands of years, now they are but a spec of dust beneath your feet. Until you fall."
+
+[node name="WinTrigger" parent="." instance=ExtResource("37_peop2")]
+position = Vector2(848, -9381)
+
+[node name="MoonAudio" parent="." node_paths=PackedStringArray("subtitles") instance=ExtResource("35_x3lac")]
+position = Vector2(87, -2507)
+audio_filename = "res://assets/audio/voice/setpieces/moon.wav"
+play_random_audio = false
+subtitles = NodePath("../CanvasLayer/Subtitles")
+custom_subtitles = "The moon is falling, slowly, trust me. It’s totally not just a set-piece."
+
+[node name="WindSFXTrigger" parent="." instance=ExtResource("38_8o8rt")]
+position = Vector2(462, -1203)

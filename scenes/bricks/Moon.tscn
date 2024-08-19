@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy3xerfuxvbng"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://b5aopymst4spp" path="res://scenes/physics/brick_material.tres" id="1_bj6ch"]
+[ext_resource type="Script" path="res://scenes/scripts/Brick.gd" id="2_ou13j"]
+[ext_resource type="Texture2D" uid="uid://c3qgm323haedg" path="res://assets/images/world/objects/moon_large.png" id="3_vk57k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_okjg8"]
+radius = 2967.28
+
+[node name="Moon" type="RigidBody2D" node_paths=PackedStringArray("no_placing_area", "debug_text")]
+collision_layer = 18
+collision_mask = 18
+mass = 10.0
+center_of_mass_mode = 1
+physics_material_override = ExtResource("1_bj6ch")
+continuous_cd = 2
+max_contacts_reported = 255
+contact_monitor = true
+sleeping = true
+script = ExtResource("2_ou13j")
+no_placing_area = NodePath("NoBuildArea")
+debug_text = NodePath("DebugText")
+unmovable = true
+
+[node name="Moon" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("3_vk57k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(39, -1)
+shape = SubResource("CircleShape2D_okjg8")
+
+[node name="NoBuildArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NoBuildArea"]
+position = Vector2(45, 0)
+shape = SubResource("CircleShape2D_okjg8")
+
+[node name="DebugText" type="RichTextLabel" parent="."]
+offset_left = -19.0
+offset_top = -18.0
+offset_right = 21.0
+offset_bottom = 22.0
+bbcode_enabled = true

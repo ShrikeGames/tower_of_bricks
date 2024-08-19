@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://js8ny15kgwdr"]
+
+[ext_resource type="Script" path="res://scenes/scripts/ButtonToggle.gd" id="1_7t1ax"]
+[ext_resource type="AudioStream" uid="uid://c12hj25s4rtnp" path="res://assets/audio/sfx/pop.wav" id="2_jc30m"]
+[ext_resource type="Texture2D" uid="uid://dmppdfrm57cix" path="res://assets/images/menu/SettingsCog.png" id="3_m5oe1"]
+
+[node name="SettingsCog" type="Node2D" node_paths=PackedStringArray("sfx", "button")]
+script = ExtResource("1_7t1ax")
+sfx = NodePath("MenuSFX")
+button = NodePath("PlayButton")
+
+[node name="MenuSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jc30m")
+bus = &"SFX"
+
+[node name="PlayButton" type="TextureButton" parent="."]
+offset_left = -44.0
+offset_top = -47.0
+offset_right = 45.0
+offset_bottom = 45.0
+texture_normal = ExtResource("3_m5oe1")
+texture_pressed = ExtResource("3_m5oe1")
+texture_hover = ExtResource("3_m5oe1")
+
+[connection signal="button_down" from="PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="PlayButton" to="." method="_on_play_button_mouse_exited"]

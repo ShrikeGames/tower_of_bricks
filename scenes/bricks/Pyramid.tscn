@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxgbtley7tdsv"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://b5aopymst4spp" path="res://scenes/physics/brick_material.tres" id="1_a4wjt"]
+[ext_resource type="Script" path="res://scenes/scripts/Brick.gd" id="2_b0psp"]
+[ext_resource type="Texture2D" uid="uid://xeq0467jilio" path="res://assets/images/world/objects/pyramid.png" id="3_p1tx7"]
+
+[node name="Pyramid" type="RigidBody2D" node_paths=PackedStringArray("no_placing_area", "debug_text")]
+position = Vector2(1, -32)
+collision_layer = 18
+collision_mask = 18
+mass = 10.0
+center_of_mass_mode = 1
+physics_material_override = ExtResource("1_a4wjt")
+continuous_cd = 2
+max_contacts_reported = 255
+contact_monitor = true
+sleeping = true
+script = ExtResource("2_b0psp")
+no_placing_area = NodePath("NoBuildArea")
+debug_text = NodePath("DebugText")
+unmovable = true
+
+[node name="Pyramid" type="Sprite2D" parent="."]
+position = Vector2(31, -578)
+scale = Vector2(3.04, 3.04)
+texture = ExtResource("3_p1tx7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(32, 0)
+polygon = PackedVector2Array(-622, 31, -28, -1186, 620, 31)
+
+[node name="NoBuildArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NoBuildArea"]
+position = Vector2(32, 0)
+polygon = PackedVector2Array(-622, 31, -28, -1186, 620, 31)
+
+[node name="DebugText" type="RichTextLabel" parent="."]
+offset_left = -19.0
+offset_top = -18.0
+offset_right = 21.0
+offset_bottom = 22.0
+bbcode_enabled = true

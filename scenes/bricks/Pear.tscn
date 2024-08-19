@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://8sot133mg56h"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://b5aopymst4spp" path="res://scenes/physics/brick_material.tres" id="1_pcthg"]
+[ext_resource type="Script" path="res://scenes/scripts/Brick.gd" id="2_u57nu"]
+[ext_resource type="Texture2D" uid="uid://beam7fo57nom5" path="res://assets/images/world/rpg_items/pear.png" id="3_qxrvi"]
+
+[node name="Pear" type="RigidBody2D" node_paths=PackedStringArray("no_placing_area", "debug_text")]
+collision_layer = 18
+collision_mask = 18
+mass = 3.0
+center_of_mass_mode = 1
+physics_material_override = ExtResource("1_pcthg")
+continuous_cd = 2
+max_contacts_reported = 255
+contact_monitor = true
+sleeping = true
+script = ExtResource("2_u57nu")
+no_placing_area = NodePath("NoBuildArea")
+debug_text = NodePath("DebugText")
+unmovable = true
+
+[node name="Pear" type="Sprite2D" parent="."]
+position = Vector2(3, -21)
+texture = ExtResource("3_qxrvi")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(32, 0)
+polygon = PackedVector2Array(-48, -2, -48, -10, -43, -17, -38, -21, -33, -24, -30, -30, -28, -37, -24, -39, -21, -44, -16, -47, -14, -48, -14, -47, -14, -45, -17, -44, -21, -38, -19, -36, -18, -32, -18, -26, -18, -22, -16, -17, -15, -10, -17, -3, -21, 3, -27, 7, -35, 8, -41, 6, -46, 2)
+
+[node name="NoBuildArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NoBuildArea"]
+position = Vector2(32, 0)
+polygon = PackedVector2Array(-48, -2, -48, -10, -43, -17, -38, -21, -33, -24, -30, -30, -28, -37, -24, -39, -21, -44, -16, -47, -14, -48, -14, -47, -14, -45, -17, -44, -21, -38, -19, -36, -18, -32, -18, -26, -18, -22, -16, -17, -15, -10, -17, -3, -21, 3, -27, 7, -35, 8, -41, 6, -46, 2)
+
+[node name="DebugText" type="RichTextLabel" parent="."]
+offset_left = -19.0
+offset_top = -18.0
+offset_right = 21.0
+offset_bottom = 22.0
+bbcode_enabled = true

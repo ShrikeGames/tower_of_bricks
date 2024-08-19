@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c81v1s7i3rktu"
+path="res://.godot/imported/joy of discovery.wav-12ca0c9cd98642217f1c3409ad8d06b2.sample"
+
+[deps]
+
+source_file="res://assets/audio/voice/joy of discovery.wav"
+dest_files=["res://.godot/imported/joy of discovery.wav-12ca0c9cd98642217f1c3409ad8d06b2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

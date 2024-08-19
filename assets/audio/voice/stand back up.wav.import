@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmwwydm04m7dn"
+path="res://.godot/imported/stand back up.wav-c90f664f516184fbbc23b5ac0eff5947.sample"
+
+[deps]
+
+source_file="res://assets/audio/voice/stand back up.wav"
+dest_files=["res://.godot/imported/stand back up.wav-c90f664f516184fbbc23b5ac0eff5947.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

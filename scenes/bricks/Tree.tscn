@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgwmvpq7pih3i"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://b5aopymst4spp" path="res://scenes/physics/brick_material.tres" id="1_udb56"]
+[ext_resource type="Script" path="res://scenes/scripts/Brick.gd" id="2_sb6du"]
+[ext_resource type="Texture2D" uid="uid://b0i2e2r2mkttj" path="res://assets/images/world/objects/tree.png" id="3_d1xsq"]
+[ext_resource type="Shader" path="res://scenes/physics/Tree.gdshader" id="3_nobmx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mg3sw"]
+shader = ExtResource("3_nobmx")
+shader_parameter/speed = 5.0
+shader_parameter/minStrength = 0.067
+shader_parameter/maxStrength = 0.212
+shader_parameter/strengthScale = 200.0
+shader_parameter/interval = 1.0
+shader_parameter/detail = 2.0
+shader_parameter/distortion = 0.179
+shader_parameter/heightOffset = 0.797
+shader_parameter/offset = -100.0
+
+[node name="Tree" type="RigidBody2D" node_paths=PackedStringArray("no_placing_area", "debug_text")]
+position = Vector2(1, 0)
+collision_layer = 18
+collision_mask = 18
+mass = 20.0
+center_of_mass_mode = 1
+physics_material_override = ExtResource("1_udb56")
+continuous_cd = 2
+max_contacts_reported = 255
+contact_monitor = true
+sleeping = true
+script = ExtResource("2_sb6du")
+no_placing_area = NodePath("NoBuildArea")
+debug_text = NodePath("DebugText")
+unmovable = true
+wind_point = Vector2(0, -75)
+
+[node name="Tree" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mg3sw")
+position = Vector2(-12, -157)
+texture = ExtResource("3_d1xsq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(32, 0)
+polygon = PackedVector2Array(-66, -21, -82, -27, -99, -37, -108, -48, -122, -73, -129, -92, -112, -84, -117, -102, -120, -135, -120, -165, -119, -179, -106, -173, -105, -224, -100, -266, -94, -296, -85, -286, -73, -326, -65, -353, -61, -364, -52, -347, -45, -352, -39, -353, -34, -353, -19, -376, -11, -362, -5, -348, 0, -330, 1, -317, 9, -325, 13, -309, 18, -289, 22, -263, 26, -239, 27, -215, 31, -222, 34, -227, 37, -216, 41, -193, 42, -167, 41, -140, 39, -116, 44, -122, 49, -128, 49, -111, 48, -93, 46, -82, 53, -83, 59, -85, 57, -78, 46, -57, 31, -41, 13, -29, 4, -25, -6, 5, 6, -5, 12, -2, -9, 24, -6, 29, -1, 32, -60, 32, -56, 26, -55, 17, -58, 8, -75, -3, -70, -7, -61, -3)
+
+[node name="NoBuildArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NoBuildArea"]
+position = Vector2(32, 0)
+polygon = PackedVector2Array(-66, -21, -82, -27, -99, -37, -108, -48, -122, -73, -129, -92, -112, -84, -117, -102, -120, -135, -120, -165, -119, -179, -106, -173, -105, -224, -100, -266, -94, -296, -85, -286, -73, -326, -65, -353, -61, -364, -52, -347, -45, -352, -39, -353, -34, -353, -19, -376, -11, -362, -5, -348, 0, -330, 1, -317, 9, -325, 13, -309, 18, -289, 22, -263, 26, -239, 27, -215, 31, -222, 34, -227, 37, -216, 41, -193, 42, -167, 41, -140, 39, -116, 44, -122, 49, -128, 49, -111, 48, -93, 46, -82, 53, -83, 59, -85, 57, -78, 46, -57, 31, -41, 13, -29, 4, -25, -6, 5, 6, -5, 12, -2, -9, 24, -6, 29, -1, 32, -60, 32, -56, 26, -55, 17, -58, 8, -75, -3, -70, -7, -61, -3)
+
+[node name="DebugText" type="RichTextLabel" parent="."]
+offset_left = -19.0
+offset_top = -18.0
+offset_right = 21.0
+offset_bottom = 22.0
+bbcode_enabled = true

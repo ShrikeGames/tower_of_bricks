@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bo6t8msxvromr"
+path="res://.godot/imported/first brick drop.wav-186832a9c5b80008f4d55ce82af1ae49.sample"
+
+[deps]
+
+source_file="res://assets/audio/voice/reactions/first brick drop.wav"
+dest_files=["res://.godot/imported/first brick drop.wav-186832a9c5b80008f4d55ce82af1ae49.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

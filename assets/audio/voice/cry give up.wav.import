@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cux2v2qq5307s"
+path="res://.godot/imported/cry give up.wav-a0aea057ea848cdbd3c4d13f7672f7e5.sample"
+
+[deps]
+
+source_file="res://assets/audio/voice/cry give up.wav"
+dest_files=["res://.godot/imported/cry give up.wav-a0aea057ea848cdbd3c4d13f7672f7e5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

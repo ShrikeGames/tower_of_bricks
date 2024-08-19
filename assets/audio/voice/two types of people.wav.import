@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dx85xppjvnog5"
+path="res://.godot/imported/two types of people.wav-66ade7a69f236897d7df74a16940fabf.sample"
+
+[deps]
+
+source_file="res://assets/audio/voice/two types of people.wav"
+dest_files=["res://.godot/imported/two types of people.wav-66ade7a69f236897d7df74a16940fabf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

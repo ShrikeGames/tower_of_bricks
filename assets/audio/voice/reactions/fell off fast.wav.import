@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqkub4ldu822s"
+path="res://.godot/imported/fell off fast.wav-e99458f2e8552a9e8d56ac7a88ca28d8.sample"
+
+[deps]
+
+source_file="res://assets/audio/voice/reactions/fell off fast.wav"
+dest_files=["res://.godot/imported/fell off fast.wav-e99458f2e8552a9e8d56ac7a88ca28d8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

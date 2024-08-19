@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2uyxrjbo77s4"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://b5aopymst4spp" path="res://scenes/physics/brick_material.tres" id="1_23xps"]
+[ext_resource type="Script" path="res://scenes/scripts/Brick.gd" id="2_i3xw3"]
+[ext_resource type="Texture2D" uid="uid://hsct1p52j3hf" path="res://assets/images/world/rpg_items/blueberry.png" id="3_2q12i"]
+
+[node name="BlueBerry" type="RigidBody2D" node_paths=PackedStringArray("no_placing_area", "debug_text")]
+collision_layer = 18
+collision_mask = 18
+center_of_mass_mode = 1
+physics_material_override = ExtResource("1_23xps")
+continuous_cd = 2
+max_contacts_reported = 255
+contact_monitor = true
+sleeping = true
+script = ExtResource("2_i3xw3")
+no_placing_area = NodePath("NoBuildArea")
+debug_text = NodePath("DebugText")
+unmovable = true
+
+[node name="BlueBerry" type="Sprite2D" parent="."]
+position = Vector2(-2.98024e-08, -12)
+rotation = -0.0404339
+texture = ExtResource("3_2q12i")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(32, 0)
+polygon = PackedVector2Array(-39, 0, -42, -3, -45, -9, -45, -13, -43, -17, -39, -20, -38, -22, -35, -24, -34, -23, -33, -23, -31, -24, -29, -23, -26, -22, -22, -19, -19, -15, -19, -10, -20, -6, -23, -3, -27, 0, -35, 0)
+
+[node name="NoBuildArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NoBuildArea"]
+position = Vector2(32, 0)
+polygon = PackedVector2Array(-39, 0, -42, -3, -45, -9, -45, -13, -43, -17, -39, -20, -38, -22, -35, -24, -34, -23, -33, -23, -31, -24, -29, -23, -26, -22, -22, -19, -19, -15, -19, -10, -20, -6, -23, -3, -27, 0, -35, 0)
+
+[node name="DebugText" type="RichTextLabel" parent="."]
+offset_left = -19.0
+offset_top = -18.0
+offset_right = 21.0
+offset_bottom = 22.0
+bbcode_enabled = true

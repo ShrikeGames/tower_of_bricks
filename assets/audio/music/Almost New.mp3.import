@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://de1t7kr7gjpom"
+path="res://.godot/imported/Almost New.mp3-a285838b097df43fa6314ec7eebc8c1b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Almost New.mp3"
+dest_files=["res://.godot/imported/Almost New.mp3-a285838b097df43fa6314ec7eebc8c1b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

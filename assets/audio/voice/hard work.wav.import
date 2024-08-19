@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c43r3yufgucge"
+path="res://.godot/imported/hard work.wav-c7a169ba39a5606a298a451ab98625e4.sample"
+
+[deps]
+
+source_file="res://assets/audio/voice/hard work.wav"
+dest_files=["res://.godot/imported/hard work.wav-c7a169ba39a5606a298a451ab98625e4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

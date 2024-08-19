@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxnpqut0u314t"]
+
+[ext_resource type="Script" path="res://scenes/scripts/Subtitles.gd" id="1_gw7g5"]
+
+[node name="Subtitles" type="Node2D" node_paths=PackedStringArray("sub_box")]
+script = ExtResource("1_gw7g5")
+sub_box = NodePath("SubtitlesText")
+
+[node name="SubtitlesText" type="RichTextLabel" parent="."]
+offset_top = 766.0
+offset_right = 1922.0
+offset_bottom = 1086.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[center][/center]"
+fit_content = true
+scroll_active = false

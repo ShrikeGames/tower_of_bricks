@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cfhc7crxkxgq6"
+path="res://.godot/imported/bricks first.wav-56c3fb538062a5d04099f618f0216bb3.sample"
+
+[deps]
+
+source_file="res://assets/audio/voice/reactions/bricks first.wav"
+dest_files=["res://.godot/imported/bricks first.wav-56c3fb538062a5d04099f618f0216bb3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

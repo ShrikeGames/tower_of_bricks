@@ -1,0 +1,229 @@
+[gd_scene load_steps=13 format=3 uid="uid://dlx8qu3oqo7iy"]
+
+[ext_resource type="Texture2D" uid="uid://ysc1buifbc2l" path="res://assets/images/menu/MenuBackgroundBlack.png" id="1_6lxi6"]
+[ext_resource type="Texture2D" uid="uid://c86qrrwn0r0r8" path="res://assets/images/menu/SliderKnob.png" id="2_c7b6m"]
+[ext_resource type="Script" path="res://scenes/scripts/AudioSlider.gd" id="2_vw5si"]
+[ext_resource type="Texture2D" uid="uid://truiqwvb4b5m" path="res://assets/images/menu/SliderKnobHighlighted.png" id="3_j4rel"]
+[ext_resource type="Texture2D" uid="uid://0mxrmagnjy78" path="res://assets/images/menu/Settings_SliderBar_Back.png" id="4_rmfdw"]
+[ext_resource type="Texture2D" uid="uid://b32q0fp3o35jl" path="res://assets/images/menu/Settings_SliderBar_Middle.png" id="5_tikye"]
+[ext_resource type="Texture2D" uid="uid://bwth04onwekvj" path="res://assets/images/menu/Checkbox_Unchecked.png" id="7_t1mlv"]
+[ext_resource type="PackedScene" uid="uid://dvegulb5nu8gb" path="res://scenes/Menu/CloseButton.tscn" id="7_y3lnu"]
+[ext_resource type="Texture2D" uid="uid://dvfakawetam4m" path="res://assets/images/menu/Checkbox_Checked.png" id="8_mqltj"]
+[ext_resource type="Script" path="res://scenes/scripts/Checkbox.gd" id="9_ju7hw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ui24p"]
+texture = ExtResource("4_rmfdw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xtw14"]
+texture = ExtResource("5_tikye")
+
+[node name="Settings" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="MenuBackgroundBlack" type="Sprite2D" parent="."]
+position = Vector2(512, 256)
+texture = ExtResource("1_6lxi6")
+
+[node name="Title" type="HSplitContainer" parent="."]
+offset_top = 8.0
+offset_right = 1023.0
+offset_bottom = 519.0
+split_offset = 200
+
+[node name="Master Volume" type="RichTextLabel" parent="Title"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Volume Settings[/center]"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Master" type="HSplitContainer" parent="."]
+offset_top = 56.0
+offset_right = 998.0
+offset_bottom = 567.0
+split_offset = 200
+
+[node name="Master Volume" type="RichTextLabel" parent="Master"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Master Volume[/center]"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="MasterAudio" type="HSlider" parent="Master"]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("2_c7b6m")
+theme_override_icons/grabber_highlight = ExtResource("3_j4rel")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_ui24p")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_xtw14")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("2_vw5si")
+
+[node name="Voice" type="HSplitContainer" parent="."]
+offset_top = 96.0
+offset_right = 998.0
+offset_bottom = 607.0
+split_offset = 200
+
+[node name="Voice Volume" type="RichTextLabel" parent="Voice"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Voice Volume[/center]"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="VoiceAudio" type="HSlider" parent="Voice"]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("2_c7b6m")
+theme_override_icons/grabber_highlight = ExtResource("3_j4rel")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_ui24p")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_xtw14")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("2_vw5si")
+audio_bus_name = "Voice"
+
+[node name="Music" type="HSplitContainer" parent="."]
+offset_top = 137.0
+offset_right = 998.0
+offset_bottom = 647.0
+split_offset = 200
+
+[node name="Label" type="RichTextLabel" parent="Music"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Music Volume[/center]"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Slider" type="HSlider" parent="Music"]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("2_c7b6m")
+theme_override_icons/grabber_highlight = ExtResource("3_j4rel")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_ui24p")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_xtw14")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("2_vw5si")
+audio_bus_name = "Music"
+
+[node name="SFX" type="HSplitContainer" parent="."]
+offset_top = 176.0
+offset_right = 998.0
+offset_bottom = 687.0
+split_offset = 200
+
+[node name="Label" type="RichTextLabel" parent="SFX"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Sound Effects Volume[/center]"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Slider" type="HSlider" parent="SFX"]
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("2_c7b6m")
+theme_override_icons/grabber_highlight = ExtResource("3_j4rel")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_ui24p")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_xtw14")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("2_vw5si")
+audio_bus_name = "SFX"
+
+[node name="Title2" type="HSplitContainer" parent="."]
+offset_top = 216.0
+offset_right = 1023.0
+offset_bottom = 727.0
+split_offset = 200
+
+[node name="Gameplay" type="RichTextLabel" parent="Title2"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Gameplay[/center]"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Title3" type="HSplitContainer" parent="."]
+offset_top = 264.0
+offset_right = 1023.0
+offset_bottom = 775.0
+split_offset = 200
+
+[node name="HowToPlay" type="RichTextLabel" parent="Title3"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Controls[/center]
+
+
+
+"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="HowToPlay2" type="RichTextLabel" parent="Title3"]
+layout_mode = 2
+bbcode_enabled = true
+text = "WASD or Arrow Keys  - Move and Jump
+Mouse - Aim
+Left Mouse Button - Pick up or drop bricks"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Title4" type="HSplitContainer" parent="."]
+offset_top = 344.0
+offset_right = 1023.0
+offset_bottom = 855.0
+split_offset = 200
+
+[node name="Gameplay" type="RichTextLabel" parent="Title4"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Preferences[/center]"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Title5" type="HSplitContainer" parent="."]
+offset_left = 16.0
+offset_top = 392.0
+offset_right = 1023.0
+offset_bottom = 903.0
+split_offset = 200
+
+[node name="HowToPlay" type="RichTextLabel" parent="Title5"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Skip Intro Cutscene[/center]
+Will skip the introduction and start the game immediately
+
+
+"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="SkipCutscene" type="TextureButton" parent="Title5"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("7_t1mlv")
+texture_pressed = ExtResource("8_mqltj")
+script = ExtResource("9_ju7hw")
+settings_name = "skip_intro"
+
+[node name="CloseButton" parent="." node_paths=PackedStringArray("object_to_hide") instance=ExtResource("7_y3lnu")]
+position = Vector2(1008, 18)
+object_to_hide = NodePath("..")
+
+[connection signal="value_changed" from="Master/MasterAudio" to="Master/MasterAudio" method="_on_value_changed"]
+[connection signal="value_changed" from="Voice/VoiceAudio" to="Voice/VoiceAudio" method="_on_value_changed"]
+[connection signal="value_changed" from="Music/Slider" to="Music/Slider" method="_on_value_changed"]
+[connection signal="value_changed" from="SFX/Slider" to="SFX/Slider" method="_on_value_changed"]
+[connection signal="toggled" from="Title5/SkipCutscene" to="Title5/SkipCutscene" method="_on_toggled"]
