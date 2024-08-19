@@ -29,13 +29,13 @@ position = Vector2(32, 0)
 polygon = PackedVector2Array(-77, -33, -75, -24, -68, -13, -54, -4, -37, 1, -18, -1, 4, -14, 11, -23, 9, -27, 14, -32, 16, -37, 14, -41, 9, -39, 4, -36, -6, -31, -20, -26, -37, -23, -51, -24, -61, -27, -71, -34)
 
 [node name="NoBuildArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 256
 collision_mask = 256
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NoBuildArea"]
-position = Vector2(32, 0)
-polygon = PackedVector2Array(-77, -33, -75, -24, -68, -13, -54, -4, -37, 1, -18, -1, 4, -14, 11, -23, 9, -27, 14, -32, 16, -37, 14, -41, 9, -39, 4, -36, -6, -31, -20, -26, -37, -23, -51, -24, -61, -27, -71, -34)
+position = Vector2(36, 1)
+scale = Vector2(1.12, 1.12)
+polygon = PackedVector2Array(-75.8928, -32.1428, -75, -24, -68, -13, -54, -4, -37, 1, -18, -1, 4, -14, 11, -23, 9, -27, 14, -32, 16, -37, 14, -41, 9, -39, 4, -36, -6, -31, -20, -26, -37, -23, -50.8928, -24.1071, -59.8214, -28.5714, -69.6428, -34.8214)
 
 [node name="DebugText" type="RichTextLabel" parent="."]
 offset_left = -19.0

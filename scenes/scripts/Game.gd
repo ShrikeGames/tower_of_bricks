@@ -14,7 +14,7 @@ var rare_brick_fabs:Array = [brick_fab_slope_left, brick_fab_slope_right, brick_
 var rare_chance:float = 0.1
 var ghost_brick_fabs:Array = []
 var rare_ghost_brick_fabs:Array = []
-
+@export var bgm:AudioStreamPlayer
 @export var pop_sfx:AudioStreamPlayer
 @export var brick_node:Node2D
 @export var background_node:Node2D
@@ -31,7 +31,7 @@ var brick:Brick
 var falls:int = 0
 var game_timer:float = 0
 var achievement_num_bricks_picked_up:int = 0
-
+var next_last_touched_pos:Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in range(0, len(brick_fabs)):
@@ -58,6 +58,8 @@ func _process(delta:float):
 	game_timer += delta
 	mouse_position = to_local(snap(camera.get_global_mouse_position()))
 	update_camera()
+	if bgm and not bgm.playing:
+		bgm.play()
 	if is_instance_valid(ghost_brick):
 		ghost_brick.position = mouse_position
 		if ghost_brick.no_placing_area.has_overlapping_areas():
@@ -78,7 +80,9 @@ func _process(delta:float):
 				brick.rare = next_is_rare
 				brick.colour_override = next_colour
 				brick.collision_mask = 2
+				brick.connect("brick_dropped", brick_dropped)
 				brick_node.add_child(brick)
+				brick.last_touched_pos = next_last_touched_pos
 				ghost_brick.queue_free()
 				next_is_rare = randf() < rare_chance
 	else:
@@ -90,6 +94,7 @@ func _process(delta:float):
 					next_brick_id = brick_object.brick_id
 					next_is_rare = brick_object.rare
 					next_colour = brick_object.modulate
+					next_last_touched_pos = brick_object.global_position - Vector2(0, 100)
 					update_ghost_brick()
 					for touching_brick in brick_object.get_colliding_bodies():
 						if is_instance_valid(touching_brick) and is_instance_of(touching_brick, Brick) and not touching_brick.unmovable:
@@ -106,6 +111,15 @@ func _process(delta:float):
 					cursor.set_frame_and_progress(2, 0)
 					hovering = true
 					break
+			if not Global.playing_audio:
+				if not Global.settings["achievements"].get("physics_borked", false):
+					for brick_object in brick_node.get_children():
+						if is_instance_valid(brick_object) and is_instance_of(brick_object, Brick):
+							if brick_object.global_position.distance_to(brick_object.prev_global_position) > 1200:
+								play_achievement_audio(character.global_position, "res://assets/audio/voice/reactions/physics_borked.wav", "Did you just delete that brick from existence? The physics are breaking down...")
+								Global.settings["achievements"]["physics_borked"] = true
+								Global.save_settings()
+						
 			if not hovering:
 				cursor.set_frame_and_progress(0, 0)
 	
@@ -114,12 +128,12 @@ func _process(delta:float):
 	else:
 		character.achievment_time_since_last_moved = 0
 	
-	if character.position.y > 1000:
+	if character.global_position.y > 1000:
 		character.reset()
 		falls += 1
 		spawn_random_voice_line(character.global_position)
 		
-	elif character.position.y > character.last_ground_pos.y + 1000:
+	elif character.global_position.y > character.last_ground_pos.y + 600:
 		falls += 1
 		spawn_random_voice_line(character.global_position)
 		
@@ -159,7 +173,6 @@ func play_achievement_audio(pos:Vector2, custom_audio_file:String, custom_subtit
 	audio_trigger.subtitles = subtitles
 	add_child(audio_trigger)
 	audio_trigger.trigger()
-	
 
 func spawn_random_voice_line(pos:Vector2):
 	if Global.playing_audio:
@@ -236,3 +249,9 @@ func update_ghost_brick():
 func init():
 	mouse_position = to_local(camera.get_global_mouse_position())
 	camera.position.y = 450
+
+func brick_dropped():
+	if not Global.settings["achievements"].get("dropped_brick", false):
+		play_achievement_audio(character.global_position, "res://assets/audio/voice/reactions/first brick drop.wav", "I'll just try and put that brick back. You seem to have dropped it.")
+		Global.settings["achievements"]["dropped_brick"] = true
+		Global.save_settings()

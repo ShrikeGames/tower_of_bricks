@@ -131,6 +131,7 @@ func _init():
 
 
 func _ready():
+	last_ground_pos = global_position
 	if is_coyote_time_enabled:
 		add_child(coyote_timer)
 		coyote_timer.wait_time = coyote_time
@@ -161,7 +162,14 @@ func _input(_event):
 		holding_jump = false
 	
 func _physics_process(delta):
-	if is_feet_on_ground():
+	if Global.space_gravity:
+		falling_gravity_multiplier = 0.01
+		max_jump_amount = 999
+	else:
+		falling_gravity_multiplier = 1.5
+		max_jump_amount = 2
+	
+	if is_feet_on_ground() and not is_coyote_timer_running():
 		last_ground_pos = self.global_position
 		
 	if is_coyote_timer_running() or current_jump_type == JumpType.NONE:
@@ -207,6 +215,7 @@ func _physics_process(delta):
 func reset():
 	self.velocity = Vector2(0,0)
 	self.global_position = last_ground_pos
+	last_ground_pos = self.global_position
 
 # Use this instead of coyote_timer.start() to check if the coyote_timer is enabled first
 func start_coyote_timer():

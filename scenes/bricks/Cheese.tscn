@@ -29,12 +29,12 @@ position = Vector2(32, 0)
 polygon = PackedVector2Array(-123, -2, -129, -103, 47, -121, 56, -99, 60, 3)
 
 [node name="NoBuildArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 256
 collision_mask = 256
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NoBuildArea"]
-position = Vector2(32, 0)
+position = Vector2(34, 4)
+scale = Vector2(1.08, 1.08)
 polygon = PackedVector2Array(-123, -2, -129, -103, 47, -121, 56, -99, 60, 3)
 
 [node name="DebugText" type="RichTextLabel" parent="."]

@@ -1,12 +1,14 @@
 extends RigidBody2D
 class_name Brick
 signal pick_up
+signal brick_dropped
 
 @export var no_placing_area:Area2D
 @export var locked_in_area:Area2D
 @export var clickable_area:Area2D
 @export var required_freeze_connections:int = 4
 @export var debug_text:RichTextLabel
+@export var debug_mode:bool = false
 var is_ghost:bool = false
 var initial_position:Vector2
 var off_screen:bool = false
@@ -18,7 +20,11 @@ var hovered:bool = false
 @export var colour_override:Color
 @export var wind_point:Vector2 = Vector2(0, 0)
 var last_touched_pos:Vector2
+var prev_global_position:Vector2
+
 func _ready():
+	if debug_text:
+		debug_text.visible = debug_mode
 	initial_position = self.global_position
 	last_touched_pos = self.global_position
 	if colour_override:
@@ -28,16 +34,18 @@ func _ready():
 		self.modulate = colour_override
 	
 func _process(_delta):
+	prev_global_position = self.global_position
 	if abs(angular_velocity) < 0.001:
 		angular_velocity = 0
+	if Global.space_gravity:
+		gravity_scale = 0.1
 	
 	if is_ghost or off_screen:
 		return
 	
-	if self.get_contact_count() > 0:
-		for body in self.get_colliding_bodies():
-			if is_instance_valid(body) and is_instance_of(body, Brick) and body.unmovable:
-				last_touched_pos = body.global_position - Vector2(0, 100)
+	for body in self.get_colliding_bodies():
+		if is_instance_valid(body) and is_instance_of(body, Brick) and body.freeze:
+			last_touched_pos = body.global_position - Vector2(0, 100)
 		
 	if wind_point.x != 0 or wind_point.y != 0:
 		self.apply_impulse(Global.get_wind_speed(self.position), wind_point)
@@ -80,4 +88,5 @@ func _process(_delta):
 		self.angular_velocity = 0
 		self.rotation = 0
 		self.linear_velocity = Vector2(0,0)
-
+		emit_signal("brick_dropped")
+	

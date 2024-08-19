@@ -1,8 +1,10 @@
 extends Node
 
+var space_gravity:bool = false
+
 var wind_speeds:Dictionary = {
 	-400: Vector2(0.0, 0.0),
-	-1200: Vector2(60.0, 30.0),
+	-1200: Vector2(60.0, 10.0),
 	-5000: Vector2(0.0, 0.0)
 }
 

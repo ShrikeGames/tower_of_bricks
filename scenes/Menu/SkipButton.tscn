@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://biwm8g3a23cti"]
+
+[ext_resource type="Script" path="res://scenes/scripts/ButtonToggle.gd" id="1_8gfp4"]
+[ext_resource type="AudioStream" uid="uid://c12hj25s4rtnp" path="res://assets/audio/sfx/pop.wav" id="2_tu8dt"]
+[ext_resource type="Texture2D" uid="uid://d1d5krgyvwt3u" path="res://assets/images/menu/SKIP.png" id="3_4bo8u"]
+
+[node name="SkipButton" type="Node2D" node_paths=PackedStringArray("sfx", "button")]
+process_mode = 3
+script = ExtResource("1_8gfp4")
+sfx = NodePath("MenuSFX")
+button = NodePath("CloseButton")
+
+[node name="MenuSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tu8dt")
+bus = &"SFX"
+
+[node name="CloseButton" type="TextureButton" parent="."]
+process_mode = 3
+offset_left = -166.0
+offset_top = -52.0
+offset_right = 634.0
+offset_bottom = 214.0
+scale = Vector2(0.42486, 0.42486)
+texture_normal = ExtResource("3_4bo8u")
+texture_pressed = ExtResource("3_4bo8u")
+texture_hover = ExtResource("3_4bo8u")
+
+[connection signal="button_down" from="CloseButton" to="." method="_on_play_button_button_down"]
+[connection signal="mouse_entered" from="CloseButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="CloseButton" to="." method="_on_play_button_mouse_exited"]

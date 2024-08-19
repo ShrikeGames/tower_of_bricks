@@ -1,3 +1,51 @@
-[gd_scene format=3 uid="uid://dwe4ms8717cj4"]
+[gd_scene load_steps=6 format=3 uid="uid://dwe4ms8717cj4"]
 
-[node name="IntroCutscene" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://bntqwf11hadox" path="res://assets/images/intro/BlackBackground.jpg" id="1_86c40"]
+[ext_resource type="Script" path="res://scenes/scripts/IntroCutscene.gd" id="1_ijxu4"]
+[ext_resource type="Texture2D" uid="uid://c3qgm323haedg" path="res://assets/images/world/objects/moon_large.png" id="2_lweny"]
+[ext_resource type="PackedScene" uid="uid://biwm8g3a23cti" path="res://scenes/Menu/SkipButton.tscn" id="3_k0eaw"]
+[ext_resource type="AudioStream" uid="uid://d3mcr71r6fu0o" path="res://assets/audio/voice/intro.wav" id="4_qptka"]
+
+[node name="IntroCutscene" type="Node2D" node_paths=PackedStringArray("audio_player", "scrolling_text")]
+process_mode = 3
+visible = false
+script = ExtResource("1_ijxu4")
+audio_player = NodePath("AudioStreamPlayer")
+scrolling_text = NodePath("scrolling_text")
+
+[node name="BlackBackground" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_86c40")
+
+[node name="MoonLarge" type="Sprite2D" parent="."]
+position = Vector2(1003, 7)
+texture = ExtResource("2_lweny")
+
+[node name="scrolling_text" type="RichTextLabel" parent="."]
+offset_left = 33.0
+offset_top = 1083.0
+offset_right = 1897.0
+offset_bottom = 2385.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 72
+text = "It is the dawn of The Third Age. 
+The once glorious world of Bricktopia has been destroyed, strange invading objects have appeared everywhere, and the moon itself is falling from the sky. 
+Soon the world will end.
+
+It is up to you, valiant survivor of Bricktopia to stop the moon and save the remains of your world.
+Can you build your path to the heavens, brick by brick? 
+Can you scale this monumental task? 
+Or will you fall over, and over, and over again?"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="SkipButton" parent="." node_paths=PackedStringArray("object_to_hide") instance=ExtResource("3_k0eaw")]
+position = Vector2(1771, 987)
+object_to_hide = NodePath("..")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qptka")
+bus = &"Voice"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

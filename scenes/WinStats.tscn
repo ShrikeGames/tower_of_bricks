@@ -1,0 +1,166 @@
+[gd_scene load_steps=4 format=3 uid="uid://di6nes0cm65sg"]
+
+[ext_resource type="Script" path="res://scenes/scripts/WinStats.gd" id="1_bypdo"]
+[ext_resource type="Texture2D" uid="uid://ysc1buifbc2l" path="res://assets/images/menu/MenuBackgroundBlack.png" id="1_vbvdg"]
+[ext_resource type="PackedScene" uid="uid://dvegulb5nu8gb" path="res://scenes/Menu/CloseButton.tscn" id="2_ycfd7"]
+
+[node name="Stats" type="Node2D" node_paths=PackedStringArray("falls_count", "jumps_count", "bricks_count", "time_count", "a_count")]
+position = Vector2(1, 0)
+script = ExtResource("1_bypdo")
+falls_count = NodePath("falls/count")
+jumps_count = NodePath("double_jumps/count")
+bricks_count = NodePath("bricks/count")
+time_count = NodePath("time/count")
+a_count = NodePath("achievements/count")
+
+[node name="MenuBackgroundBlack" type="Sprite2D" parent="."]
+position = Vector2(342, 161)
+scale = Vector2(0.667969, 0.628906)
+texture = ExtResource("1_vbvdg")
+
+[node name="Title" type="HSplitContainer" parent="."]
+offset_top = 8.0
+offset_right = 683.0
+offset_bottom = 54.0
+split_offset = 200
+
+[node name="title" type="RichTextLabel" parent="Title"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Statistics[/center]"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="falls" type="HSplitContainer" parent="."]
+offset_left = 12.0
+offset_top = 64.0
+offset_right = 1025.0
+offset_bottom = 133.0
+split_offset = 250
+
+[node name="title" type="RichTextLabel" parent="falls"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Number of Falls[/center]
+
+
+
+"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="count" type="RichTextLabel" parent="falls"]
+layout_mode = 2
+bbcode_enabled = true
+text = "0"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="double_jumps" type="HSplitContainer" parent="."]
+offset_left = 13.0
+offset_top = 104.0
+offset_right = 1025.0
+offset_bottom = 173.0
+split_offset = 250
+
+[node name="title" type="RichTextLabel" parent="double_jumps"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Number of Double Jumps[/center]
+
+
+
+"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="count" type="RichTextLabel" parent="double_jumps"]
+layout_mode = 2
+bbcode_enabled = true
+text = "0"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="bricks" type="HSplitContainer" parent="."]
+offset_left = 13.0
+offset_top = 144.0
+offset_right = 1025.0
+offset_bottom = 213.0
+split_offset = 250
+
+[node name="title" type="RichTextLabel" parent="bricks"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Number of Bricks Picked Up[/center]
+
+
+
+"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="count" type="RichTextLabel" parent="bricks"]
+layout_mode = 2
+bbcode_enabled = true
+text = "0"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="time" type="HSplitContainer" parent="."]
+offset_left = 13.0
+offset_top = 184.0
+offset_right = 1025.0
+offset_bottom = 253.0
+split_offset = 250
+
+[node name="title" type="RichTextLabel" parent="time"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Time Taken (minutes)[/center]
+
+
+
+"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="count" type="RichTextLabel" parent="time"]
+layout_mode = 2
+bbcode_enabled = true
+text = "0"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="achievements" type="HSplitContainer" parent="."]
+offset_left = 13.0
+offset_top = 224.0
+offset_right = 1025.0
+offset_bottom = 293.0
+split_offset = 250
+
+[node name="title" type="RichTextLabel" parent="achievements"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Achievements[/center]
+
+
+
+"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="count" type="RichTextLabel" parent="achievements"]
+layout_mode = 2
+bbcode_enabled = true
+text = "0"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="CloseButton" parent="." node_paths=PackedStringArray("object_to_hide") instance=ExtResource("2_ycfd7")]
+position = Vector2(664, 18)
+object_to_hide = NodePath("..")
